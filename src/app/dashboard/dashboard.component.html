@@ -1,1 +1,6 @@
-<p>dashboard works!</p>
+<div class="container">
+  <app-cart
+    *ngFor="let eachCartData of cartList"
+    [cartData]="eachCartData"
+  ></app-cart>
+</div>

@@ -1,22 +1,30 @@
 <mat-card class="example-card">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{cartData.productName}}</mat-card-title>
-    <mat-card-subtitle style="color: green;">price: {{cartData.price | currency}}</mat-card-subtitle>
+    <mat-card-title>{{ cartData.productName }}</mat-card-title>
+    <mat-card-subtitle style="color: green"
+      >price: {{ cartData.price | currency }}</mat-card-subtitle
+    >
+    <mat-card-subtitle
+      >Added on {{ cartData.createdDate | date }}</mat-card-subtitle
+    >
   </mat-card-header>
-  <img
-    mat-card-image
-    src="{{ cartData.imageUrl }}"
-    alt="Photo of a Shiba Inu"
-  />
+  <div style="display: flex; justify-content: center">
+    <img
+      style="border-radius: 10px"
+      mat-card-image
+      src="{{ cartData.imageUrl }}"
+      alt="Photo of a Shiba Inu"
+    />
+  </div>
   <mat-card-content>
-    <p>
+    <p style="max-height: 60px; min-height: 60px">
       {{ cartData.description }}
     </p>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="primary">Add to Cart</button>
-    <button mat-raised-button color="primary">+1</button>
-    <button mat-raised-button color="warn">-1</button>
+    <button mat-raised-button color="basic">+1</button>
+    <button mat-raised-button color="basic">-1</button>
   </mat-card-actions>
 </mat-card>
