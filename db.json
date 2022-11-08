@@ -11,6 +11,18 @@
       "createdDate": "2022-11-07T18:00:00.000Z",
       "origin": "India",
       "id": 1
+    },
+    {
+      "productName": "Realme phone ",
+      "productShortCode": "ph",
+      "category": "Fruits",
+      "price": 232,
+      "description": "very good ",
+      "imageUrl": "dfa",
+      "isBestAchived": "yes",
+      "createdDate": "2022-11-07T18:00:00.000Z",
+      "origin": "India",
+      "id": 2
     }
   ]
 }

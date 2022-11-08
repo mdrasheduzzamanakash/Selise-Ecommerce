@@ -1,1 +1,22 @@
-<p>cart works!</p>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{cartData.productName}}</mat-card-title>
+    <mat-card-subtitle style="color: green;">price: {{cartData.price | currency}}</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    mat-card-image
+    src="{{ cartData.imageUrl }}"
+    alt="Photo of a Shiba Inu"
+  />
+  <mat-card-content>
+    <p>
+      {{ cartData.description }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary">Add to Cart</button>
+    <button mat-raised-button color="primary">+1</button>
+    <button mat-raised-button color="warn">-1</button>
+  </mat-card-actions>
+</mat-card>

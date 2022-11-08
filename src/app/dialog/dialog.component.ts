@@ -79,7 +79,7 @@ export class DialogComponent implements OnInit {
       if (this.productForm.valid) {
         this.api.postProduct(this.productForm.value).subscribe({
           next: (res) => {
-            alert('Product edited successfully');
+            alert('Product added successfully');
             this.productForm.reset();
             this.dialogRef.close('save');
           },
