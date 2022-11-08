@@ -7,10 +7,13 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
+  @Input() fromMyCart: boolean = false;
   @Input() cartData: any;
   constructor(private api: ApiService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.fromMyCart);
+  }
 
   addToCart() {
     if (this.cartData.count > 0) {

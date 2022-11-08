@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card *ngIf="!fromMyCart || cartData.inCart" class="example-card">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{ cartData.productName }}</mat-card-title>
@@ -23,8 +23,32 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button *ngIf="!cartData.inCart" mat-raised-button color="primary" (click)="addToCart()" [disabled]="!cartData.count">Add to Cart</button>
-    <button *ngIf="cartData.inCart" mat-raised-button color="basic" (click)="incCart()" [disabled]="!cartData.count">+1</button>
-    <button *ngIf="cartData.inCart" mat-raised-button color="basic" (click)="decCart()" [disabled]="!cartData.inCart">-1</button>
+    <button
+      *ngIf="!cartData.inCart && !fromMyCart"
+      mat-raised-button
+      color="primary"
+      (click)="addToCart()"
+      [disabled]="!cartData.count"
+    >
+      Add to Cart
+    </button>
+    <button
+      *ngIf="cartData.inCart"
+      mat-raised-button
+      color="basic"
+      (click)="incCart()"
+      [disabled]="!cartData.count"
+    >
+      +1
+    </button>
+    <button
+      *ngIf="cartData.inCart"
+      mat-raised-button
+      color="basic"
+      (click)="decCart()"
+      [disabled]="!cartData.inCart"
+    >
+      -1
+    </button>
   </mat-card-actions>
 </mat-card>

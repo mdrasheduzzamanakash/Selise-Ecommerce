@@ -1,6 +1,7 @@
 <div class="container">
   <app-cart
     *ngFor="let eachCartData of myCartList"
-    [cartData]="eachCartData"
+    [cartData]="eachCartData" 
+    [fromMyCart]="fromMyCart"
   ></app-cart>
 </div>

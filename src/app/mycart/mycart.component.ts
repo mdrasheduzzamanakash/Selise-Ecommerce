@@ -8,10 +8,12 @@ import { ApiService } from '../services/api.service';
 })
 export class MycartComponent implements OnInit {
 
+  fromMyCart: boolean;
   myCartList: any;
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
+    this.fromMyCart = true;
     this.api.getProduct().subscribe({
       next: (res) => {
         this.myCartList = res;
