@@ -18,6 +18,7 @@ export class ProductComponent implements OnInit {
     'productShortCode',
     'category',
     'price',
+    'count',
     'createdDate',
     'origin',
     'action',

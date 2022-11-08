@@ -31,6 +31,7 @@ export class DialogComponent implements OnInit {
       ],
       category: ['', Validators.required],
       price: ['', Validators.required],
+      count: ['', Validators.required],
       description: ['', [Validators.min(3), Validators.max(250)]],
       imageUrl: [''],
       isBestAchived: [''],
@@ -46,6 +47,7 @@ export class DialogComponent implements OnInit {
       );
       this.productForm.controls['category'].setValue(this.editData.category);
       this.productForm.controls['price'].setValue(this.editData.price);
+      this.productForm.controls['count'].setValue(this.editData.count);
       this.productForm.controls['productShortCode'].setValue(
         this.editData.productShortCode
       );
@@ -77,6 +79,7 @@ export class DialogComponent implements OnInit {
       });
     } else {
       if (this.productForm.valid) {
+        this.productForm.value.inCart = 0;
         this.api.postProduct(this.productForm.value).subscribe({
           next: (res) => {
             alert('Product added successfully');

@@ -1,1 +1,6 @@
-<p>mycart works!</p>
+<div class="container">
+  <app-cart
+    *ngFor="let eachCartData of myCartList"
+    [cartData]="eachCartData"
+  ></app-cart>
+</div>
