@@ -11,3 +11,7 @@ table {
     max-width: 80%;
     margin: 0 auto;
   }
+
+  .up-btn {
+   float: right;
+  }

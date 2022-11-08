@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -10,13 +10,14 @@ import { ApiService } from '../services/api.service';
 })
 export class DialogComponent implements OnInit {
   optionList = ['yes', 'no'];
-
+  ActionButtonName: string = 'Save';
   productForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private api: ApiService,
-    private dialogRef: MatDialogRef<DialogComponent>
+    private dialogRef: MatDialogRef<DialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public editData: any
   ) {}
   ngOnInit(): void {
     this.productForm = this.formBuilder.group({
@@ -36,20 +37,57 @@ export class DialogComponent implements OnInit {
       createdDate: ['', Validators.required],
       origin: ['', Validators.required],
     });
+
+    if (this.editData) {
+      console.log(this.editData);
+      this.ActionButtonName = 'Update';
+      this.productForm.controls['productName'].setValue(
+        this.editData.productName
+      );
+      this.productForm.controls['category'].setValue(this.editData.category);
+      this.productForm.controls['price'].setValue(this.editData.price);
+      this.productForm.controls['productShortCode'].setValue(
+        this.editData.productShortCode
+      );
+      this.productForm.controls['createdDate'].setValue(
+        this.editData.createdDate
+      );
+      this.productForm.controls['origin'].setValue(this.editData.origin);
+      this.productForm.controls['description'].setValue(
+        this.editData.description
+      );
+      this.productForm.controls['imageUrl'].setValue(this.editData.imageUrl);
+      this.productForm.controls['isBestAchived'].setValue(
+        this.editData.isBestAchived
+      );
+    }
   }
 
-  editProduct() {
-    if (this.productForm.valid) {
-      this.api.postProduct(this.productForm.value).subscribe({
+  CreateOrEditProduct() {
+    if (this.editData) {
+      this.api.putProduct(this.productForm.value, this.editData.id).subscribe({
         next: (res) => {
-          alert('Product edited successfully');
+          alert('Product updated Successfully');
           this.productForm.reset();
-          this.dialogRef.close('save');
+          this.dialogRef.close('updated');
         },
         error: (err) => {
-          alert('Error while editing the product');
+          alert('Error while getting the record');
         },
       });
+    } else {
+      if (this.productForm.valid) {
+        this.api.postProduct(this.productForm.value).subscribe({
+          next: (res) => {
+            alert('Product edited successfully');
+            this.productForm.reset();
+            this.dialogRef.close('save');
+          },
+          error: (err) => {
+            alert('Error while editing the product');
+          },
+        });
+      }
     }
   }
 }

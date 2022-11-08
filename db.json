@@ -4,37 +4,13 @@
       "productName": "Asus",
       "productShortCode": "as-lap",
       "category": "Fruits",
-      "price": 400,
+      "price": 4100,
       "description": "good in condition",
       "imageUrl": "http:",
       "isBestAchived": "no",
       "createdDate": "2022-11-07T18:00:00.000Z",
       "origin": "India",
       "id": 1
-    },
-    {
-      "productName": "Fresh Rice",
-      "productShortCode": "fr-rice",
-      "category": "Fruits",
-      "price": 100,
-      "description": "Made in China.",
-      "imageUrl": "ff",
-      "isBestAchived": "no",
-      "createdDate": "2022-11-07T18:00:00.000Z",
-      "origin": "India",
-      "id": 2
-    },
-    {
-      "productName": "Hp Pavilion",
-      "productShortCode": "hp-lap",
-      "category": "Fruits",
-      "price": 242,
-      "description": "Made in China.",
-      "imageUrl": "fs",
-      "isBestAchived": "",
-      "createdDate": "2022-11-07T18:00:00.000Z",
-      "origin": "India",
-      "id": 3
     }
   ]
 }

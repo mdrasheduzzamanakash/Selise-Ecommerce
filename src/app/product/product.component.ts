@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { DialogComponent } from '../dialog/dialog.component';
 import { ApiService } from '../services/api.service';
 
@@ -19,22 +20,25 @@ export class ProductComponent implements OnInit {
     'price',
     'createdDate',
     'origin',
+    'action',
   ];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private dialog: MatDialog, private api: ApiService) {}
+  constructor(
+    private dialog: MatDialog,
+    private api: ApiService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getAllProducts();
   }
 
-  openDialog() {
-    this.dialog.open(DialogComponent, {
-      width: '30%',
-    });
+  createNewProduct() {
+    this.router.navigate(['/createNew']);
   }
 
   getAllProducts() {
@@ -46,6 +50,33 @@ export class ProductComponent implements OnInit {
       },
       error: (err) => {
         alert('Error while fetching the records');
+      },
+    });
+  }
+
+  editProduct(row: any) {
+    this.dialog
+      .open(DialogComponent, {
+        width: '30%',
+        data: row,
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'updated') {
+          this.getAllProducts();
+        }
+      });
+  }
+
+  deleteProduct(id: number) {
+    console.log(id);
+    this.api.deleteProduct(id).subscribe({
+      next: (res) => {
+        alert('deleted Successfully');
+        this.getAllProducts();
+      },
+      error: (err) => {
+        alert('Error while deleting the record');
       },
     });
   }

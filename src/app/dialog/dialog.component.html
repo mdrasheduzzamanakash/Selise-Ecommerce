@@ -3,12 +3,20 @@
   <form [formGroup]="productForm">
     <mat-form-field appearance="outline">
       <mat-label>Product Name</mat-label>
-      <input formControlName="productName" matInput placeholder="hp laptop pavilion" />
+      <input
+        formControlName="productName"
+        matInput
+        placeholder="hp laptop pavilion"
+      />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label> ProductShortCode </mat-label>
-      <input formControlName="productShortCode" matInput placeholder="hp-lap-pav" />
+      <input
+        formControlName="productShortCode"
+        matInput
+        placeholder="hp-lap-pav"
+      />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -22,12 +30,21 @@
 
     <mat-form-field appearance="outline">
       <mat-label> price </mat-label>
-      <input formControlName="price" matInput placeholder="1000$" type="number" />
+      <input
+        formControlName="price"
+        matInput
+        placeholder="1000$"
+        type="number"
+      />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label> Description </mat-label>
-      <input formControlName="description" matInput placeholder="Very fresh product..." />
+      <input
+        formControlName="description"
+        matInput
+        placeholder="Very fresh product..."
+      />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -36,7 +53,11 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <input formControlName="createdDate" matInput [matDatepicker]="myDatepicker" />
+      <input
+        formControlName="createdDate"
+        matInput
+        [matDatepicker]="myDatepicker"
+      />
       <mat-datepicker-toggle
         matSuffix
         [for]="myDatepicker"
@@ -54,7 +75,10 @@
     </mat-form-field>
 
     <label for=""><h4>Is best Achieved</h4></label>
-    <mat-radio-group formControlName="isBestAchived" class="example-radio-group">
+    <mat-radio-group
+      formControlName="isBestAchived"
+      class="example-radio-group"
+    >
       <mat-radio-button
         class="example-radio-button"
         *ngFor="let option of optionList"
@@ -67,7 +91,12 @@
 
 <div mat-dialog-action [align]="'end'">
   <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-  <button style="margin-left: 5px" mat-raised-button color="primary" (click)="editProduct()">
-    Save
+  <button
+    style="margin-left: 5px"
+    mat-raised-button
+    color="primary"
+    (click)="CreateOrEditProduct()"
+  >
+    {{ ActionButtonName }}
   </button>
 </div>
