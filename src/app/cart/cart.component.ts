@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
       this.cartData.count--;
       this.cartData.inCart++;
       // make the api call
-      this.api.putProduct(this.cartData, this.cartData.id).subscribe({
+      this.api.putProduct(this.cartData, this.cartData._id).subscribe({
         next: (res) => {
           console.log('Added to cart successfully');
         },
@@ -39,7 +39,7 @@ export class CartComponent implements OnInit {
     if (this.cartData.inCart > 0) {
       this.cartData.inCart--;
       this.cartData.count++;
-      this.api.putProduct(this.cartData, this.cartData.id).subscribe({
+      this.api.putProduct(this.cartData, this.cartData._id).subscribe({
         next: (res) => {},
         error: (err) => {},
       });

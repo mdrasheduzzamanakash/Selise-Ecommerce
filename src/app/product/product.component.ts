@@ -69,9 +69,9 @@ export class ProductComponent implements OnInit {
       });
   }
 
-  deleteProduct(id: number) {
-    console.log(id);
-    this.api.deleteProduct(id).subscribe({
+  deleteProduct(_id: number) {
+    // console.log(_id);
+    this.api.deleteProduct(_id).subscribe({
       next: (res) => {
         alert('deleted Successfully');
         this.getAllProducts();

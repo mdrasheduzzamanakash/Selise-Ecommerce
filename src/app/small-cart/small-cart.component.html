@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card *ngIf="cartData.inCart" class="example-card">
   <mat-card-title-group>
     <mat-card-title>{{ cartData.productName }}</mat-card-title>
     <mat-card-subtitle style="color: green"
