@@ -4,24 +4,25 @@ import { ApiService } from '../services/api.service';
 @Component({
   selector: 'app-mycart',
   templateUrl: './mycart.component.html',
-  styleUrls: ['./mycart.component.css']
+  styleUrls: ['./mycart.component.css'],
 })
 export class MycartComponent implements OnInit {
-
   fromMyCart: boolean;
   myCartList: any;
-  constructor(private api: ApiService) { }
+  progressBar: boolean  = true;
+  constructor(private api: ApiService) {}
 
   ngOnInit(): void {
     this.fromMyCart = true;
     this.api.getProduct().subscribe({
       next: (res) => {
         this.myCartList = res;
+        this.progressBar = false;
       },
-       error:(err) => {
-        alert('Error in retriving the data')
-      }
-    })
+      error: (err) => {
+        alert('Error in retriving the data');
+        this.progressBar = false;
+      },
+    });
   }
-
 }

@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
@@ -21,16 +22,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
 import { CartComponent } from './cart/cart.component';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { MycartComponent } from './mycart/mycart.component';
 import { ProductComponent } from './product/product.component';
-import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
-import { SmallCartComponent } from './small-cart/small-cart.component';
 import { ReusableTableModule } from './reusable-table/reusable-table.module';
 import { TableComponent } from './reusable-table/table/table.component';
+import { SmallCartComponent } from './small-cart/small-cart.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { TableComponent } from './reusable-table/table/table.component';
     MatPaginatorModule,
     MatSortModule,
     MatCardModule,
-    ReusableTableModule
+    ReusableTableModule,
+    MatProgressBarModule,
   ],
   providers: [TableComponent],
   bootstrap: [AppComponent],

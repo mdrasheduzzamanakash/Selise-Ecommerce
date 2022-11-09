@@ -16,6 +16,7 @@ import { ReusableTableServiceService } from '../reusable-table-service.service';
   providers: [DialogComponent],
 })
 export class TableComponent implements OnInit {
+  @Input() stopProgressBarInTable: any;
   @Input() apiObjForService: CrudInterface = {
     create: '',
     read: '',
@@ -47,16 +48,17 @@ export class TableComponent implements OnInit {
     this.getAllProducts();
   }
 
-
   getAllProducts() {
     this.api.getProduct().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        this.stopProgressBarInTable(false);
       },
       error: (err) => {
         alert('Error while fetching the records');
+        this.stopProgressBarInTable(false);
       },
     });
   }
