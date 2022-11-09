@@ -29,6 +29,9 @@ import { MycartComponent } from './mycart/mycart.component';
 import { ProductComponent } from './product/product.component';
 import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
 import { SmallCartComponent } from './small-cart/small-cart.component';
+import { ReusableTableModule } from './reusable-table/reusable-table.module';
+import { TableComponent } from './reusable-table/table/table.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,8 +69,9 @@ import { SmallCartComponent } from './small-cart/small-cart.component';
     MatPaginatorModule,
     MatSortModule,
     MatCardModule,
+    ReusableTableModule
   ],
-  providers: [],
+  providers: [TableComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

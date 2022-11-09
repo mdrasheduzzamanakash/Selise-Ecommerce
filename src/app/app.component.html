@@ -1,3 +1,4 @@
+<!-- <app-table [apiObjForService]="apiForTable" [controlObjForService]="controlForTable"></app-table> -->
 <mat-toolbar>
   <span
     ><img
@@ -10,7 +11,8 @@
     <a class="item" routerLink="mycart">My Cart</a>
   </div>
   <div class="example-button-container">
-    <button (click)="cartClicked()"
+    <button
+      (click)="cartClicked()"
       mat-fab
       color="basic"
       aria-label="Example icon button with a delete icon"
