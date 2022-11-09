@@ -79,7 +79,7 @@
         </ng-container>
 
         <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef >Actions</th>
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
           <td mat-cell *matCellDef="let row">
             <button
               *ngIf="controlObjForService.actions"
@@ -91,6 +91,7 @@
             </button>
             <button
               *ngIf="controlObjForService.actions"
+              [disabled]="row.inCart > 0"
               mat-icon-button
               color="warn"
               (click)="deleteProduct(row._id)"
@@ -105,6 +106,11 @@
       </table>
 
       <mat-paginator
+        [length]="length"
+        [pageSize]="pageSize"
+        [pageIndex]="pageIndex"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onPaginateChange($event)"
         [pageSizeOptions]="controlObjForService.pageSize"
         aria-label="Select page of users"
       ></mat-paginator>

@@ -14,6 +14,7 @@ export class ProductComponent implements OnInit {
     read: 'https://pacific-shore-31807.herokuapp.com/api/',
     update: 'https://pacific-shore-31807.herokuapp.com/api/update-Product/',
     delete: 'https://pacific-shore-31807.herokuapp.com/api/delete-Product/',
+    readInChunk: 'https://pacific-shore-31807.herokuapp.com/api/chunk/',
   };
   controlForTable: ControlInterface = {
     pageSize: [10, 15, 20],

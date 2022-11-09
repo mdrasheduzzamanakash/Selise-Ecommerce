@@ -13,6 +13,7 @@ export class ReusableTableServiceService {
     read: '',
     update: '',
     delete: '',
+    readInChunk: '',
   };
 
   // controlDyno: ControlInterface = {
@@ -33,6 +34,12 @@ export class ReusableTableServiceService {
 
   getProduct() {
     return this.http.get<any>(this.apiDyno.read);
+  }
+
+  getProductInChunk(pageIndex: number, pageSize: number) {
+    return this.http.get<any>(
+      this.apiDyno.readInChunk + pageIndex + '/' + pageSize
+    );
   }
 
   putProduct(data: any, id: number) {

@@ -22,6 +22,7 @@ export class TableComponent implements OnInit {
     read: '',
     update: '',
     delete: '',
+    readInChunk: '',
   };
   @Input() controlObjForService: ControlInterface = {
     pageSize: [],
@@ -42,14 +43,43 @@ export class TableComponent implements OnInit {
     private router: Router
   ) {}
 
+  length: number;
+  pageSize: number = 10;
+  pageIndex: number = 0;
+  pageSizeOptions: any;
+
+  onPaginateChange(event: any) {
+    console.log('length' + event.length);
+    console.log('pageSize' + event.pageSize);
+    console.log('pageIndex' + event.pageIndex);
+    console.log('pageSizeOption' + event.pageSizeOptions);
+    this.getAllProducts();
+  }
   ngOnInit(): void {
     this.api.setApiDyno(this.apiObjForService);
     this.displayedColumns = this.controlObjForService.columns;
-    this.getAllProducts();
+    // try with getProductInChunk as well
+    // this.getAllProducts();
+    this.getProductsInChunk();
   }
 
   getAllProducts() {
     this.api.getProduct().subscribe({
+      next: (res) => {
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+        this.stopProgressBarInTable(false);
+      },
+      error: (err) => {
+        alert('Error while fetching the records');
+        this.stopProgressBarInTable(false);
+      },
+    });
+  }
+
+  getProductsInChunk() {
+    this.api.getProductInChunk(this.pageIndex, this.pageSize).subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
