@@ -1,22 +1,16 @@
+<div style="display: flex; flex-direction: column; align-items: center">
+  <button
+    style="width: 200px; height: 50px; border-radius: 20px"
+    class="up-btn"
+    mat-raised-button
+    color="primary"
+    routerLink="createNew"
+  >
+    New Product
+  </button>
+</div>    
 <app-table
   [apiObjForService]="apiForTable"
   [controlObjForService]="controlForTable"
 ></app-table>
-
-<div style="display: flex; justify-content: center; margin-top: 50px">
-  <h1>****Same table reused (Configuration-2) ****</h1>
-</div>
-
-<app-table
-  [apiObjForService]="apiForTable2"
-  [controlObjForService]="controlForTable2"
-></app-table>
-
-<div style="display: flex; justify-content: center; margin-top: 50px">
-  <h1>****Same table reused (Configuration-3) Filter Added ****</h1>
-</div>
-
-<app-table
-  [apiObjForService]="apiForTable3"
-  [controlObjForService]="controlForTable3"
-></app-table>
+<router-outlet></router-outlet>

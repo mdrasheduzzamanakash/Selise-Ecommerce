@@ -32,39 +32,7 @@ export class ProductComponent implements OnInit {
     actions: true,
   };
 
-  apiForTable2: CrudInterface = {
-    create: 'https://pacific-shore-31807.herokuapp.com/api/add-Product',
-    read: 'https://pacific-shore-31807.herokuapp.com/api/',
-    update: 'https://pacific-shore-31807.herokuapp.com/api/update-Product/',
-    delete: 'https://pacific-shore-31807.herokuapp.com/api/delete-Product/',
-  };
-  controlForTable2: ControlInterface = {
-    pageSize: [10, 15, 20],
-    sorting: false,
-    filter: false,
-    columns: ['productName', 'productShortCode', 'category', 'price', 'count'],
-    actions: false,
-  };
-
-  apiForTable3: CrudInterface = {
-    create: 'https://pacific-shore-31807.herokuapp.com/api/add-Product',
-    read: 'https://pacific-shore-31807.herokuapp.com/api/',
-    update: 'https://pacific-shore-31807.herokuapp.com/api/update-Product/',
-    delete: 'https://pacific-shore-31807.herokuapp.com/api/delete-Product/',
-  };
-  controlForTable3: ControlInterface = {
-    pageSize: [5, 15, 20],
-    sorting: false,
-    filter: true,
-    columns: ['productName', 'productShortCode', 'category'],
-    actions: true,
-  };
-
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
-
-  createNewProduct() {
-    this.router.navigate(['/createNew']);
-  }
 }

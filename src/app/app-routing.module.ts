@@ -6,11 +6,20 @@ import { MycartComponent } from './mycart/mycart.component';
 import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
-  {path:'', component:DashboardComponent},
+  { path: '', component: DashboardComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'product', component: ProductComponent },
+  {
+    path: 'product',
+    component: ProductComponent,
+    children: [
+      {
+        path: 'createNew',
+        component: CreateProductComponent,
+      },
+    ],
+  },
   { path: 'mycart', component: MycartComponent },
-  { path: 'createNew', component: CreateProductComponent },
+  { path: '**', component: DashboardComponent },
 ];
 
 @NgModule({

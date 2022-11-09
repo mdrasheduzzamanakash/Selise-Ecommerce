@@ -47,9 +47,6 @@ export class TableComponent implements OnInit {
     this.getAllProducts();
   }
 
-  createNewProduct() {
-    this.router.navigate(['/createNew']);
-  }
 
   getAllProducts() {
     this.api.getProduct().subscribe({
