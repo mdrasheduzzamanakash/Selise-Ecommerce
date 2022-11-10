@@ -1,6 +1,6 @@
 <div class="container">
   <div style="margin-top: 10px">
-    <mat-form-field *ngIf="controlObjForService.filter" appearance="standard">
+    <!-- <mat-form-field *ngIf="controlObjForService.filter" appearance="standard">
       <mat-label>Filter</mat-label>
       <input
         matInput
@@ -8,7 +8,7 @@
         placeholder="Ex. Mia"
         #input
       />
-    </mat-form-field>
+    </mat-form-field> -->
 
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort>
@@ -109,11 +109,11 @@
         [length]="length"
         [pageSize]="pageSize"
         [pageIndex]="pageIndex"
-        [pageSizeOptions]="pageSizeOptions"
         (page)="onPaginateChange($event)"
         [pageSizeOptions]="controlObjForService.pageSize"
         aria-label="Select page of users"
       ></mat-paginator>
+      
     </div>
   </div>
 </div>

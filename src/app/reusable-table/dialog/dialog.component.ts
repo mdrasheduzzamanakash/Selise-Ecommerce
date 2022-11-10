@@ -68,6 +68,8 @@ export class DialogComponent implements OnInit {
 
   CreateOrEditProduct() {
     if (this.editData) {
+      /////////////////////////////////////
+      console.log(this.productForm.value);
       this.api.putProduct(this.productForm.value, this.editData._id).subscribe({
         next: (res) => {
           alert('Product updated Successfully');
